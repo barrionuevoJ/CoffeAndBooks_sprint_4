@@ -2,17 +2,18 @@ const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const controller = {
+const controlador = {
 
     // Mostrar todos los productos
-    index: (req, res) => {
-        res.send()
+    all: (req, res) => {
+        const listaProductos = productModel.all()
+        res.render('productList', {lista: listaProductos})
     },
 
     // Mostrar un producto
     detail: (req, res) => {
         const product = productModel.find(req.params.id)
-        res.render('productDetail', { product, toThousand })
+        res.render('productDetail', { libro: product, toThousand })
     },
 
     // Crear un producto
@@ -45,7 +46,7 @@ const controller = {
         productToEdit = {
             id: productToEdit.id,
             ...req.body,
-            image: productToEdit.image,
+            img: productToEdit.img,
         }
 
         productModel.update(productToEdit)
@@ -59,10 +60,8 @@ const controller = {
         res.redirect("/");
     }
 
-
-
 };
 
 
 
-module.exports = controller;
+module.exports = controlador;
