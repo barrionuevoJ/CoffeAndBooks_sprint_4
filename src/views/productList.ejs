@@ -30,9 +30,7 @@
                 <div class="productos">
                     <% lista.forEach(libro=> { %>
                         <article>
-                            <div class="img">
-                                <img src="/Images/products/<%= libro.img %>">
-                            </div>
+                            <img src="/Images/products/<%= libro.img %>">
                             <div class="main-article">
                                 <h4 class="title">
                                     <%= libro.titulo %>
@@ -44,7 +42,8 @@
                                     $ <%= libro.precio %>
                                 </p>
                             </div>
-                            <a href="/productDetail/<%= libro.id %>"><button class="btn-compra"> Ver producto</button></a>
+                            <a href="/productDetail/<%= libro.id %>"><button class="btn-compra"> Ver
+                                    producto</button></a>
                         </article>
                         <% }); %>
                 </div>
