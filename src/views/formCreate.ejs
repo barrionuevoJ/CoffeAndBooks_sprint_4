@@ -24,30 +24,40 @@
         <main class="create">
             <section class="add">
                 <h1>Add Product</h1>
-                    <form action="/" method="post">
+                <form action="/products/" method="post">
 
-                        <label for="ProductName"></label>
-                        <input type="text" name="ProductName" id="ProductName" placeholder="Product's name">
+                    <label for="titulo"></label>
+                    <input type="text" name="titulo" id="titulo" placeholder="Titulo">
 
-                        <label for="ProductDescription"></label>
-                        <input type="text" name="ProductDescription" id="ProductDescription"
-                            placeholder="Product's Description">
+                    <label for="autor"></label>
+                    <input type="text" name="autor" id="autor" placeholder="Autor">
 
-                        <label for="ProductImage"></label>
-                        <input type="file" name="ProductImage" id="ProductImage" placeholder="Product's image">
+                    <label for="descripcion"></label>
+                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
 
-                        <label for="PoductCategory"></label>
-                        <input type="text" name="ProductCategory" id="ProductCategory" placeholder="Product's category">
+                    <label for="precio"></label>
+                    <input type="number" name="precio" id="precio" placeholder="Precio">
 
-                        <label for="ProductSize"></label>
-                        <input type="text" name="ProductSize" id="ProductSize" placeholder="Product's Size">
+                    <label for="descuento"></label>
+                    <input type="number" name="descuento" id="descuento" placeholder="Descuento">
 
-                        <label for="Price"></label>
-                        <input type="text" name="Price" id="Price" placeholder="Produc't price">
+                    <label for="cantidad"></label>
+                    <input type="number" name="cantidad" id="cantidad" placeholder="cantidad">
 
-                        <button type="submit"> Add Book </button>
+                    <select name="categoria" id="categoria">
+                        <option value="masVendidos">Mas vendidos</option>
+                        <option value="ofertas">Ofertas</option>
+                        <option value="interes">Interes</option>
+                    </select>
 
-                    </form>
+                    <label for="genero"></label>
+                    <input type="text" name="genero" id="genero" placeholder="genero">
+
+
+
+                    <button type="submit"> Add Book </button>
+
+                </form>
 
             </section>
 

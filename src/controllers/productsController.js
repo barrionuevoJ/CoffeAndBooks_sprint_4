@@ -26,7 +26,7 @@ const controlador = {
 
     store: (req, res) => {
         // Atrapo todos los campos del formulario
-        const newProduct = { ...req.body, image: 'default-image.png' }
+        const newProduct = { ...req.body, img: 'default-image.png' }
         productModel.create(newProduct)
         console.log('cree un nuevo producto')
         res.redirect('/')

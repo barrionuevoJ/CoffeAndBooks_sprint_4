@@ -2,18 +2,34 @@ main.create section.add form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(173, 216, 230, 0.498);
+    margin: 0 0 10% 0;
 }
 
 .create .add h1 {
     display: flex;
     justify-content: center;
-    text-decoration: double;
+    font-size: 2em;
+    margin: 5%;
+    background-color: #517fc872;
 }
 
 main.create section.add form input {
     padding: 2% 5% 2% 5%;
     margin: 5% 0 5% 0;
-    border-radius: 20%;
+    border-radius: 15px;
     outline: none;
     border: none;
+}
+
+.create .add form button {
+    background-color: deepskyblue;
+    padding: 3% 10% 3% 10%;
+    border-radius: 15px;
+    border: none;
+    margin: 0 0 5% 0
+}
+
+.create .add form button:hover {
+    background-color: #517fc8;
 }
