@@ -47,27 +47,64 @@ section.product-detail div.genre {
   background-color: rgba(180, 192, 240, 0.386);
   border-radius: 10%;
 }
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH */
- section.product-detail form {
-    display: flex;
-    justify-content: center;
- }
 
-section.product-detail form button{
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH */
+section.product-detail form {
+  display: flex;
+  justify-content: center;
+}
+
+section.product-detail form button.button-delete {
+  background-color: rgb(180, 192, 240);
+}
+
+section.product-detail form button.button-add {
+  background-color: rgb(180, 192, 240);
+}
+
+section.product-detail a.button-edit,
+section.product-detail form button {
   display: flex;
   margin: 35px 0;
   border-radius: 10px;
   padding: 2% 20%;
-  background-color: rgb(180, 192, 240);
   justify-content: center;
   outline: none;
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  text-transform: uppercase;
 }
 
-section.product-detail form button:hover {
-  background-color: rgb(167, 177, 217);
+section.product-detail form button.button-add {
+  background-color: #4cd95b;
+}
+
+section.product-detail form button.button-add:hover {
+  background-color: #31c423;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+section.product-detail a.button-edit {
+  background-color: #c6df38;
+  color: black;
+  text-decoration: none;
+}
+
+section.product-detail a.button-edit:hover {
+  background-color: #c4b423;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+section.product-detail form button.button-delete {
+  background-color: #d94c4c;
+}
+
+section.product-detail form button.button-delete:hover {
+  background-color: #c42323;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
 }
 
 section.product-detail article.product {
@@ -80,11 +117,11 @@ section.product-detail article.product {
     height: 60vh;
   }
 
-  section.product-detail div.image img{
+  section.product-detail div.image img {
     width: 100%;
   }
 
-  section.product-detail article.product{
+  section.product-detail article.product {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,6 +148,6 @@ section.product-detail article.product {
 
   section.product-detail div.cart {
     font-size: 1em;
-}
+  }
 
 }
