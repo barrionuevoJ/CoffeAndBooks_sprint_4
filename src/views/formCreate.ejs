@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/styles-header.css">
     <link rel="stylesheet" href="/css/styles-footer.css">
 
-    <link rel="stylesheet" href="css/styles-Form.css">
+    <link rel="stylesheet" href="/css/styles-form.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -21,42 +21,37 @@
 <body>
     <%- include('partials/mainHeader.ejs') %>
 
-        <main>
+        <main class="create">
             <section class="add">
-                <h1>Add products</h1>
+                <h1>Add Product</h1>
+                    <form action="/" method="post">
 
-                    <div class="formBox">
+                        <label for="ProductName"></label>
+                        <input type="text" name="ProductName" id="ProductName" placeholder="Product's name">
 
-                            <form action="/" method="post">
+                        <label for="ProductDescription"></label>
+                        <input type="text" name="ProductDescription" id="ProductDescription"
+                            placeholder="Product's Description">
 
-                                <label for="ProductName"></label>
-                                <input type="text" name="ProductName" id="ProductName" placeholder="Product's name">
+                        <label for="ProductImage"></label>
+                        <input type="file" name="ProductImage" id="ProductImage" placeholder="Product's image">
 
-                                <label for="ProductDescription"></label>
-                                <input type="text" name="ProductDescription" id="ProductDescription" placeholder="Product's Description">
+                        <label for="PoductCategory"></label>
+                        <input type="text" name="ProductCategory" id="ProductCategory" placeholder="Product's category">
 
-                                <label for="ProductImage"></label>
-                                <input type="file" name="ProductImage" id="ProductImage" placeholder="Product's image">
+                        <label for="ProductSize"></label>
+                        <input type="text" name="ProductSize" id="ProductSize" placeholder="Product's Size">
 
-                                <label for="PoductCategory"></label>
-                                <input type="text" name="ProductCategory" id="ProductCategory" placeholder="Product's category">
+                        <label for="Price"></label>
+                        <input type="text" name="Price" id="Price" placeholder="Produc't price">
 
-                                <label for="ProductSize"></label>
-                                <input type="text" name="ProductSize" id="ProductSize" placeholder="Product's Size">
+                        <button type="submit"> Add Book </button>
 
-                                <label for="Price"></label>
-                                <input type="text" name="Price" id="Price" placeholder="Produc't price">
-                            </form>
-                        </div>
-                    
-                
+                    </form>
+
             </section>
 
-            <div class="button">
 
-            <button type="submit"> Add Book </button>
-            
-            </div>
 
         </main>
         <%- include('partials/mainFooter.ejs') %>
