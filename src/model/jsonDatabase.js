@@ -1,11 +1,9 @@
-// Modificar
-
 const fs = require('fs');
 const path = require('path');
 // Recibo por parámetro la entidad para reutilizarlo
 
 
-const modelController = (name) => {
+const modelController = function (name) {
     console.log('entre al modelo de Mercado')
     console.log(name)
     console.log(path.resolve(__dirname, '../data/', `${name}.json`))
@@ -13,37 +11,35 @@ const modelController = (name) => {
         tablePath: path.resolve(__dirname, '../data/', `${name}.json`),
 
         // Leo el archivo Json y lo transformo en Array de objeto literal     
-        readFile: () => {
-            console.log('Leo el archivo')
+        readFile: function () {
             let tableContents = fs.readFileSync(this.tablePath, 'utf-8');
             return JSON.parse(tableContents) || [];
         },
         // Grabo el array que recibo por parámetro y lo paso a formato Json
-        writeFile: (contents) => {
+        writeFile: function (contents) {
             let tableContents = JSON.stringify(contents, null, ' ');
             fs.writeFileSync(this.tablePath, tableContents);
         },
         // Averiguo el próximo id
-        nextId: () => {
+        nextId: function () {
             let rows = this.readFile();
             let lastRow = rows.pop();
 
             return lastRow.id ? ++lastRow.id : 1;
         },
         // Leo todos los registros del archivo
-        all: () => {
+        all: function () {
             
             return this.readFile();
         },
         // Busco por id
-        find: (id) => {
+        find: function (id) {
             let rows = this.readFile();
-            console.log(" --- por el find")
             return rows.find(i => i.id == id);
         },
 
         // agrego un registro que paso por parámetro
-        create: (row) => {
+        create: function (row) {
             let rows = this.readFile();
             // Averiguo el último id y lo actualizo
             row.id = this.nextId();
@@ -55,7 +51,7 @@ const modelController = (name) => {
             return row.id;
         },
         // Actualizo el archivo
-        update: (row) => {
+        update: function (row) {
             let rows = this.readFile();
 
             let updatedRows = rows.map(oneRow => {
@@ -73,7 +69,7 @@ const modelController = (name) => {
         },
 
         // Elimino el registro en el archivo según un id    
-        delete: (id) => {
+        delete: function (id) {
 
             console.log('Elimino :' + id)
             let rows = this.readFile();
@@ -84,36 +80,42 @@ const modelController = (name) => {
             this.writeFile(updatedRows);
         },
 
-        visited: () => {
+        masVendidos: function () {
             let rows = this.readFile();
-            console.log(" --- filtro los visitados")
-            
-            const visitados = rows.filter(i => i.category == 'visited')
-            console.log(" --- ESTOY ----------------------")
-            console.log(visitados)
-            return visitados 
+            const masVendidos = rows.filter(i => i.categoria == 'masVendidos')
+            return masVendidos 
 
         },
 
-        inSale: () => {
+        ofertas: function () {
             let rows = this.readFile();
-            console.log(" --- filtro los que están para venta")
-  
-            const enVenta = rows.filter(i => i.category == 'in-sale')
-            console.log(" --- ESTOY EN VENTA--------------------")
-            console.log(enVenta)
-            return enVenta
+            const ofertas = rows.filter(i => i.categoria == 'ofertas')
+            return ofertas 
 
         },
 
-        findFirstByField:(text) => {
+        interes: function () {
+            let rows = this.readFile();
+            const interes = rows.filter(i => i.categoria == 'interes')
+            return interes 
+
+        },
+
+        carrito: function () {
+            let rows = this.readFile();
+            const carrito = rows.filter(i => i.categoria == 'masVendidos')
+            return carrito 
+
+        },
+
+        findFirstByField: function(text){
             let rows = this.all();
     
             let elementFound = rows.find(element => element.id == text);
             return elementFound;
         },
 
-        findAllByField:(text) => {
+        findAllByField: function(text){
             let rows = this.all();
             let allElementsFound = rows.filter(element => element.estado == text);
             return allElementsFound;

@@ -27,7 +27,7 @@
             <section class="product-detail">
                 <article class="product">
                     <div class="image">
-                        <img src="/Images/<%= libro.img %>" alt="productImg">
+                        <img src="/Images/products/<%= libro.img %>" alt="productImg">
                     </div>
 
                     <div class="descripcion">
@@ -36,7 +36,7 @@
                         </h1>
                         <div class="genre">
                             <span>
-                                <%= libro.genre %>
+                                <%= libro.genero %>
                             </span>
                         </div>
                         <h3>Descripción:</h3>
@@ -49,8 +49,12 @@
                             <h3>Envio: $500</h3>
                         </div>
                         <form action="/productCart" method="post">
-                            <button type="submit">Añadir al carrito</button>
+                            <button type="submit" class="button-add">Añadir al carrito</button>
                         </form>
+                        <a href="/products/edit/<%= libro.id %>" class="button-edit">Editar producto</a>
+                        <form action="/products/delete/<%= libro.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" class="button-delete">Eliminar</button>
+						</form>
                     </div>
                 </article>
             </section>

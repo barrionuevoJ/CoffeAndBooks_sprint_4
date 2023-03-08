@@ -1,28 +1,35 @@
-main section.add div.formBox form {
+main.create section.add form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150%;
-    background-color: rgba(255, 255, 255, 0.394);
+    background-color: rgba(173, 216, 230, 0.498);
+    margin: 0 0 10% 0;
 }
 
-main section.add div.formBox form input {
-    display: flex;
-    align-content: center;
-    margin: 0 0 15% 0%;
-    width: 50%;
-    border: none;
-    border-radius: 10%;
-    padding: 10px;
-}
-
-main section.add div.button button{
- display: flex;
-}
-
-h1 {
-    font-size: 2.5em;
+.create .add h1 {
     display: flex;
     justify-content: center;
-    margin: 10% 0 5% 0
+    font-size: 2em;
+    margin: 5%;
+    background-color: #517fc872;
+}
+
+main.create section.add form input {
+    padding: 2% 5% 2% 5%;
+    margin: 5% 0 5% 0;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+
+.create .add form button {
+    background-color: deepskyblue;
+    padding: 3% 10% 3% 10%;
+    border-radius: 15px;
+    border: none;
+    margin: 0 0 5% 0
+}
+
+.create .add form button:hover {
+    background-color: #517fc8;
 }
