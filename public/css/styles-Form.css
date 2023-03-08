@@ -11,15 +11,21 @@ main.create section.add form {
     justify-content: center;
     font-size: 2em;
     margin: 5%;
-    background-color: #517fc872;
+    
 }
 
 main.create section.add form input {
-    padding: 2% 5% 2% 5%;
+    padding: 3% 10% 3% 10%;
     margin: 5% 0 5% 0;
     border-radius: 15px;
     outline: none;
     border: none;
+}
+
+.create .add form select {
+    padding: 3% 4% 3% 4%;
+    border: none;
+    border-radius: 10px;
 }
 
 .create .add form button {
