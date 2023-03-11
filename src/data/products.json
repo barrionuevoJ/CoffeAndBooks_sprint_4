@@ -142,17 +142,5 @@
   "categoria": "interes",
   "img": "Pride-and-Prejudice.jpg",
   "genero": "literatura y ficción, romance"
- },
- {
-  "titulo": "",
-  "autor": "",
-  "descripcion": "",
-  "precio": "",
-  "descuento": "",
-  "cantidad": "",
-  "categoria": "masVendidos",
-  "genero": "",
-  "img": "default-image.png",
-  "id": 13
  }
 ]

@@ -2,8 +2,13 @@ main.create section.add form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(173, 216, 230, 0.498);
     margin: 0 0 10% 0;
+    
+}
+
+.create .add {
+    background-color: rgb(173, 216, 230);
+    border-radius: 30px;
 }
 
 .create .add h1 {
@@ -38,4 +43,9 @@ main.create section.add form input {
 
 .create .add form button:hover {
     background-color: #517fc8;
+}
+
+.create .add p {
+    display: flex;
+    justify-content: start;
 }
