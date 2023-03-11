@@ -36,11 +36,11 @@ const controlador = {
     edit: (req, res) => {
         console.log('ESTOY USANDO EL EDIT DEL GENERICO')
         let productToEdit = productModel.find(req.params.id)
-        res.render('formEdit', { productToEdit })
+        res.render('formEdit', { libro: productToEdit })
     },
 
     // Actualizar un producto
-    update: (req, res) => {
+    update: (req, res) => {E
         let productToEdit = productModel.find(req.params.id)
 
         productToEdit = {
