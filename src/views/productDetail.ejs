@@ -51,6 +51,7 @@
                         <form action="/productCart" method="post">
                             <button type="submit" class="button-add">Añadir al carrito</button>
                         </form>
+                        <a href="/products/edit/<%= libro.id %>" class="button-edit">Editar producto</a>
                         <form action="/products/delete/<%= libro.id %>?_method=DELETE" method="POST" style="display: inline-flex">
 							<button type="submit" class="button-delete">Eliminar</button>
 						</form>
