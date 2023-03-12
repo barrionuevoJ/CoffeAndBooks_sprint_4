@@ -1,1 +1,79 @@
-<h1>is working?</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="/css/styles-header.css">
+    <link rel="stylesheet" href="/css/styles-footer.css">
+    <link rel="stylesheet" href="/css/styles-Form.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+        <%- include('partials/mainHeader.ejs') %>
+    
+            <main class="create">
+                <section class="add">
+                    <h1>Add Product</h1>
+                    <form action="/products/<%= libro.id %>?_method=PUT/edit" method="POST">
+    
+                        <p>Titulo</p>
+    
+                        <label for="titulo"></label>
+                        <input type="text" name="titulo" id="titulo" placeholder="Titulo">
+    
+                        <p>Autor</p>
+    
+                        <label for="autor"></label>
+                        <input type="text" name="autor" id="autor" placeholder="Autor">
+    
+                        <p>Descripcion</p>
+      
+                        <label for="descripcion"></label>
+                        <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+    
+                        <p>Precio</p>
+    
+                        <label for="precio"></label>
+                        <input type="number" name="precio" id="precio" placeholder="Precio">
+    
+                        <p>Descuento</p>
+    
+                        <label for="descuento"></label>
+                        <input type="number" name="descuento" id="descuento" placeholder="Descuento">
+    
+                        <p>Cantidad</p>
+    
+                        <label for="cantidad"></label>
+                        <input type="number" name="cantidad" id="cantidad" placeholder="cantidad">
+    
+                        <p>Categoria</p>
+    
+                        <select name="categoria" id="categoria">
+                            <option value="masVendidos">Mas vendidos</option>
+                            <option value="ofertas">Ofertas</option>
+                            <option value="interes">Interes</option>
+                        </select>
+    
+                        <label for="genero"></label>
+                        <input type="text" name="genero" id="genero" placeholder="genero">
+    
+    
+    
+                        <button type="submit"> Subir cambios </button>
+    
+                    </form>
+    
+                </section>
+    
+            </main>
+            <%- include('partials/mainFooter.ejs') %>>
+        </body>
+</html>
