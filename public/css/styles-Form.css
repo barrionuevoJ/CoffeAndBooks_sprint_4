@@ -49,3 +49,19 @@ main.create section.add form input {
     display: flex;
     justify-content: start;
 }
+
+@media (min-width: 769px) {
+    .create .add h1 {
+        justify-content: end;
+    }
+
+    .create .add{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .create .add p {
+        display: flex;
+        align-items: start;
+    }
+}
