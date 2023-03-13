@@ -34,13 +34,12 @@ const controlador = {
 
     // Editar un producto
     edit: (req, res) => {
-        console.log('ESTOY USANDO EL EDIT DEL GENERICO')
         let productToEdit = productModel.find(req.params.id)
         res.render('formEdit', { libro: productToEdit })
     },
 
     // Actualizar un producto
-    update: (req, res) => {E
+    update: (req, res) => {
         let productToEdit = productModel.find(req.params.id)
 
         productToEdit = {
@@ -50,8 +49,7 @@ const controlador = {
         }
 
         productModel.update(productToEdit)
-        res.redirect("/");
-
+        res.redirect("/products/detail/" + req.params.id);
     },
 
     // Eliminar un producto

@@ -16,12 +16,12 @@
   "titulo": "Divergent",
   "autor": "Veronica Roth",
   "descripcion": "En el Chicago distópico de Beatrice, la sociedad está dividida en cinco facciones. En una ceremonia anual, todos los chicos de dieciséis años deben decidir a qué facción dedicarán el resto de sus vidas. Beatrice tiene que elegir entre quedarse con su familia... y ser quien realmente es. Así que toma una decisión que sorprenderá a todo el mundo, incluida ella...",
-  "precio": 4.8,
-  "descuento": 9,
-  "cantidad": 2,
+  "precio": "7999.8",
+  "descuento": "9",
+  "cantidad": "2",
+  "genero": "Literatura Juvenil",
   "categoria": "masVendidos",
-  "img": "Divergent.jpg",
-  "genero": "Literatura Juvenil"
+  "img": "Divergent.jpg"
  },
  {
   "id": 3,
