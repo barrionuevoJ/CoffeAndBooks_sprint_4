@@ -24,7 +24,7 @@
         <main class="create">
             <section class="add">
                 <h1>Add Product</h1>
-                <form action="/products/" method="post">
+                <form action="/products/" method="post" enctype="multipart/form-data">
 
                     <p>Titulo</p>
 
@@ -68,8 +68,10 @@
 
                     <label for="genero"></label>
                     <input type="text" name="genero" id="genero" placeholder="genero">
+                    
 
-
+                    <label for="img">Imagen del producto</label>
+                    <input type="file" name="img" id="img">
 
                     <button type="submit"> Add Book </button>
 

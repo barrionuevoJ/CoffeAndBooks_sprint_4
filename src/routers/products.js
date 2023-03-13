@@ -1,29 +1,19 @@
-// /products (GET)Listado de productos
-
-// /products/create (GET)Formulario de creación de productos
-
-// /products/:id (GET)Detalle de un producto particular
-
-// /products (POST)Acción de creación (a donde se envía el formulario)
-
-// /products/:id/edit (GET)Formulario de edición de productos
-
-// /products/:id (PUT)Acción de edición (a donde se envía el formulario):
-
-// /products/:id (DELETE)Acción de borrado
+// Recuerden que si utilizan uploadFile.single lo vamos a 
+// consumir como req.file.. y si usamos array lo consumimos como req.files
 
 const express = require('express');
 const router = express.Router();
 
 const productsController = require('../controllers/productsController')
-
-// /products
+const multerMiddleware = require('../middleware/multer');
+const uploadFile = multerMiddleware('products', 'product');
 
 // Obtener todos los productos 
 router.get('/', productsController.all);
 
 // Crear un producto 
-router.post('/', productsController.store);
+router.post('/', uploadFile.single('img'), productsController.store)
+
 router.get('/create', productsController.create);
 
 
@@ -32,10 +22,10 @@ router.get('/detail/:id', productsController.detail);
 
 // Editar un producto
 router.get('/edit/:id', productsController.edit);
-router.put('/edit/:id', productsController.update); 
+router.put('/edit/:id', uploadFile.single('img'), productsController.update);
 
 // Borrar un producto 
-router.delete('/delete/:id', productsController.destroy); 
+router.delete('/delete/:id', productsController.destroy);
 
 
 module.exports = router;
