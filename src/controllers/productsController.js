@@ -7,7 +7,7 @@ const controlador = {
     // Mostrar todos los productos
     all: (req, res) => {
         const listaProductos = productModel.all()
-        res.render('productList', {lista: listaProductos})
+        res.render('productList', {lista: listaProductos, toThousand})
     },
 
     // Mostrar un producto
@@ -28,7 +28,6 @@ const controlador = {
         // Atrapo todos los campos del formulario
         const newProduct = { ...req.body, img: 'default-image.png' }
         productModel.create(newProduct)
-        console.log('cree un nuevo producto')
         res.redirect('/')
     },
 

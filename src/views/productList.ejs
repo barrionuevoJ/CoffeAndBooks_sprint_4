@@ -38,9 +38,7 @@
                                 <h5 class="author">
                                     <%= libro.autor %>
                                 </h5>
-                                <p class="price">
-                                    $ <%= libro.precio %>
-                                </p>
+                                <p class="price"> $ <%= toThousand( libro.precio ) %></p> <br>
                             </div>
                             <a href="/products/detail/<%= libro.id %>"><button class="btn-compra"> Ver
                                     producto</button></a>

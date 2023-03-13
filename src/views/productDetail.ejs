@@ -44,8 +44,7 @@
                             <%= libro.descripcion %>
                         </span>
                         <div class="prices">
-                            <h3>Precio: $<%= libro.precio %>
-                            </h3>
+                            <h3> $ <%= toThousand( libro.precio ) %></h3>
                             <h3>Envio: $500</h3>
                         </div>
                         <div class="buttons">

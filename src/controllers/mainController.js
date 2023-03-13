@@ -15,7 +15,7 @@ const mainController = {
     productCart: (req, res) => {
         
         const carrito = productModel.carrito()
-        res.render('productCart', { carrito })
+        res.render('productCart', { carrito, toThousand })
     }
 }
 
