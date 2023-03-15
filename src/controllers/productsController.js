@@ -2,12 +2,14 @@ const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const { validationResult } = require('express-validator')
+
 const controlador = {
 
     // Mostrar todos los productos
     all: (req, res) => {
         const listaProductos = productModel.all()
-        res.render('productList', {lista: listaProductos, toThousand})
+        res.render('productList', { lista: listaProductos, toThousand })
     },
 
     // Mostrar un producto
@@ -25,11 +27,21 @@ const controlador = {
     // Guardar un producto
 
     store: (req, res) => {
-        // Atrapo todos los campos del formulario
-        let product = req.body;
-        product.img = req.file ? req.file.filename : 'default-image.png';
-        productModel.create(product);
-        res.redirect('/');
+        const resultValidation = validationResult(req);
+		
+		if (resultValidation.errors.length > 0) {
+			return res.render('formCreate', {
+				errors: resultValidation.mapped(),
+				old: req.body
+			});
+		}
+        else {
+            let product = req.body;
+            product.img = req.file ? req.file.filename : 'default-image.png';
+            productModel.create(product);
+            
+        }
+        return res.redirect('/products/');
     },
 
     // Editar un producto
@@ -55,7 +67,7 @@ const controlador = {
     // Eliminar un producto
     destroy: function (req, res) {
         productModel.delete(req.params.id);
-        res.redirect("/");
+        res.redirect("/products/");
     }
 
 };

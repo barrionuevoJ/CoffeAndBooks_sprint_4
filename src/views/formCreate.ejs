@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/styles-header.css">
     <link rel="stylesheet" href="/css/styles-footer.css">
 
-    <link rel="stylesheet" href="/css/styles-form.css">
+    <link rel="stylesheet" href="/css/styles-formCreate.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -23,57 +23,111 @@
 
         <main class="create">
             <section class="add">
-                <h1>Add Product</h1>
+
                 <form action="/products/" method="post" enctype="multipart/form-data">
 
-                    <p>Titulo</p>
+                    <h1>Añadir producto</h1>
 
-                    <label for="titulo"></label>
-                    <input type="text" name="titulo" id="titulo" placeholder="Titulo">
+                    <div class="inputs">
+                        <div class="left-side">
+                            <div class="input">
+                                <label for="titulo">Titulo</label>
+                                <input type="text" name="titulo" id="titulo"
+                                    value="<%= locals.old && old.titulo ? old.titulo: '' %>">
+                                <% if (locals.errors && errors.titulo) { %>
+                                    <div class="feedback">
+                                        <%= errors.titulo.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
 
-                    <p>Autor</p>
+                            <div class="input">
+                                <label for="autor">Autor</label>
+                                <input type="text" name="autor" id="autor"
+                                    value="<%= locals.old && old.autor ? old.autor: '' %>">
+                                <% if (locals.errors && errors.autor) { %>
+                                    <div class="feedback">
+                                        <%= errors.autor.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
 
-                    <label for="autor"></label>
-                    <input type="text" name="autor" id="autor" placeholder="Autor">
+                            <div class="input">
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" name="descripcion" id="descripcion"
+                                    value="<%= locals.old && old.descripcion ? old.descripcion: '' %>">
+                                <% if (locals.errors && errors.descripcion) { %>
+                                    <div class="feedback">
+                                        <%= errors.descripcion.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
 
-                    <p>Descripcion</p>
-  
-                    <label for="descripcion"></label>
-                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+                            <div class="input">
+                                <label for="categoria">Categoria</label>
+                                <select name="categoria" id="categoria"
+                                    value="<%= locals.old && old.categoria ? old.categoria: '' %>">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="masVendidos" <%=locals.old && old.categoria==='masVendidos'
+                                        ? 'selected' : '' ; %>>Mas vendidos</option>
+                                    <option value="ofertas" <%=locals.old && old.categoria==='ofertas' ? 'selected' : ''
+                                        ; %>>Ofertas</option>
+                                    <option value="interes" <%=locals.old && old.categoria==='interes' ? 'selected' : ''
+                                        ; %>>Interes</option>
+                                </select>
+                                <% if (locals.errors && errors.categoria) { %>
+                                    <div class="feedback">
+                                        <%= errors.categoria.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
 
-                    <p>Precio</p>
+                        <div class="right-side">
+                            <div class="input">
+                                <label for="descuento">Descuento</label>
+                                <input type="number" name="descuento" id="descuento"
+                                    value="<%= locals.old && old.descuento ? old.descuento: '' %>">
+                            </div>
 
-                    <label for="precio"></label>
-                    <input type="number" name="precio" id="precio" placeholder="Precio">
+                            <div class="input">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" name="cantidad" id="cantidad"
+                                    value="<%= locals.old && old.cantidad ? old.cantidad: '1' %>">
+                            </div>
 
-                    <p>Descuento</p>
+                            <div class="input">
+                                <label for="precio">Precio</label>
+                                <input type="number" name="precio" id="precio"
+                                    value="<%= locals.old && old.precio ? old.precio: '' %>">
+                            </div>
 
-                    <label for="descuento"></label>
-                    <input type="number" name="descuento" id="descuento" placeholder="Descuento">
+                            <div class="input">
+                                <label for="genero">Genero</label>
+                                <input type="text" name="genero" id="genero"
+                                    value="<%= locals.old && old.genero ? old.genero: '' %>">
+                                    <% if (locals.errors && errors.genero) { %>
+                                        <div class="feedback">
+                                            <%= errors.genero.msg %>
+                                        </div>
+                                        <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-file">
+                        <label for="img">Imagen del producto</label>
+                        <input type="file" name="img" id="img" value="<%= locals.old && old.img ? old.img: '' %>">
+                        <% if (locals.errors && errors.img) { %>
+                            <div class="feedback">
+                                <%= errors.img.msg %>
+                            </div>
+                            <% } %>
+                    </div>
 
-                    <p>Cantidad</p>
-
-                    <label for="cantidad"></label>
-                    <input type="number" name="cantidad" id="cantidad" placeholder="cantidad">
-
-                    <p>Categoria</p>
-
-                    <select name="categoria" id="categoria">
-                        <option value="masVendidos">Mas vendidos</option>
-                        <option value="ofertas">Ofertas</option>
-                        <option value="interes">Interes</option>
-                    </select>
-
-                    <p>Genero</p>
-
-                    <label for="genero"></label>
-                    <input type="text" name="genero" id="genero" placeholder="genero">
-                    
-
-                    <label for="img">Imagen del producto</label>
-                    <input type="file" name="img" id="img">
-
-                    <button type="submit"> Add Book </button>
+                    <div class="buttons">
+                        <button type="submit" class="btn-submit" title="Añadir"> Añadir libro </button>
+                        <button type="reset" class="btn-reset" title="Añadir"> Limpiar </button>
+                    </div>
 
                 </form>
 
