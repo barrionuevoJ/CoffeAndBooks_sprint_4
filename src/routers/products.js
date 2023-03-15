@@ -4,7 +4,7 @@
 const express = require('express');
 const router = express.Router();
 
-const validaciones = require('../middleware/express-validator')
+const productValidation = require('../middleware/productCreateValidation')
 const productsController = require('../controllers/productsController')
 const multerMiddleware = require('../middleware/multer');
 const uploadFile = multerMiddleware('products', 'product');
@@ -13,7 +13,7 @@ const uploadFile = multerMiddleware('products', 'product');
 router.get('/', productsController.all);
 
 // Crear un producto 
-router.post('/', uploadFile.single('img'), validaciones.validarProducto,productsController.store)
+router.post('/', uploadFile.single('img'), productValidation,productsController.store)
 
 router.get('/create', productsController.create);
 

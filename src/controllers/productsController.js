@@ -30,6 +30,11 @@ const controlador = {
         const resultValidation = validationResult(req);
 		
 		if (resultValidation.errors.length > 0) {
+            if (req.file) {
+                fs.unlinkSync(
+                    path.resolve(__dirname, '../../public/Images/products/' + req.file.filename)
+                )
+            }
 			return res.render('formCreate', {
 				errors: resultValidation.mapped(),
 				old: req.body
