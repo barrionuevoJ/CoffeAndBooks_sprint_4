@@ -23,6 +23,7 @@ main.create section.add form>div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -44,18 +45,25 @@ main.create section.add form select {
   text-align: center;
 }
 
+main.create section.add form div.input-number input {
+  width: 80px;
+  text-align: start;
+  margin-left: 10px;
+}
+
+main.create section.add form div.input-number,
 main.create section.add form div.input {
   height: 130px;
   margin: 15px 15px;
 }
 
 main.create section.add form div.input-file {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 main.create section.add form div.input-file input {
-    width: auto;
-    border: none;
+  width: auto;
+  border: none;
 }
 
 main.create section.add form div.feedback {
@@ -77,8 +85,14 @@ main.create section.add form div.right-side {
 }
 
 
+main.create section.add form div.inputs-top,
+main.create section.add form div.inputs-numbers {
+  display: flex;
+}
+
 main.create section.add form div.buttons {
   flex: 1;
+  flex-direction: row;
 }
 
 main.create section.add form div.buttons button {
